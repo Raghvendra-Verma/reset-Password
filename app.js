@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const postUser = require("./routes/post")
 const authUser =  require("./routes/user");
 const cors = require("cors")
 
 app.use(express.json({extended: true}));
+app.use(cors());
 
 mongoose.connect("mongodb://127.0.0.1:27017/ttchannel",
  {
@@ -21,7 +23,7 @@ app.get("/" , (req,res) => {
 
 
 app.use("/api/auth", authUser);
-app.use(cors());
+app.use("/post", postUser)
 
 
 app.listen(port , () => {

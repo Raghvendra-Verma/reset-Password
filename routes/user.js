@@ -7,4 +7,5 @@ router.post("/login", authUser.login);
 router.post("/requestPasswordReset" , authUser.requestPasswordReset);
 router.post("/resetPassword" , authUser.resetPassword);
 
+
 module.exports = router;
